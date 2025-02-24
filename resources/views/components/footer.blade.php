@@ -60,5 +60,5 @@
     </div>
 </footer>
 <div class="whatsapp">
-<a href="https://wa.me/+917505612414?text=Can%20I%20help%20you%3F" target="_blank">Chat on WhatsApp<img src="/assets/imgs/whatsapp.png" alt="whatsapp"></a>
+<a href="https://wa.me/+917505612414?text=Can%20I%20help%20you%3F" target="_blank"><img src="/assets/imgs/whatsapp.png" alt="whatsapp"></a>
 </div>

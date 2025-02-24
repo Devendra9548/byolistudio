@@ -228,7 +228,7 @@ p {
     font-size: 13px;
   }
   .scard .offer {
-    font-size: 16px;
+    font-size: 10px;
     margin-top: 5px;
   }
   .d-none-mob {
@@ -239,5 +239,12 @@ p {
   }
   .mb-15-px-mob {
     margin-bottom: -15px;
+  }
+  .starrating svg {
+    width: 58px;
+  }
+  .starrating .count-review {
+    font-size: 13px;
+    margin-top: 3px;
   }
 }/*# sourceMappingURL=style.css.map */

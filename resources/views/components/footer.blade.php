@@ -59,3 +59,6 @@
         </div>
     </div>
 </footer>
+<div class="whatsapp">
+    <a href="#"><img src="/assets/imgs/whatsapp.png" alt="whatsapp"></a>
+</div>

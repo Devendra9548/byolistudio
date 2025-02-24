@@ -235,4 +235,19 @@ header a, header i, header p {
     border-bottom-left-radius: 0px;
     border-left: 0px !important;
   }
+}
+.whatsapp {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 999 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .whatsapp {
+    text-align: right;
+  }
+  .whatsapp img {
+    width: 70%;
+  }
 }/*# sourceMappingURL=header.css.map */

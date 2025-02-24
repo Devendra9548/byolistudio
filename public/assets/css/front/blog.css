@@ -1,0 +1,21 @@
+#navMenu .bg-white {
+  color: #000 !important;
+}
+#navMenu div span.z-0 {
+  display: none !important;
+}
+
+.blog-single {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3215686275);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.blog-single p {
+  padding: 0px 15px;
+}
+.blog-single p.title:hover {
+  color: #000;
+  text-decoration: underline;
+}/*# sourceMappingURL=blog.css.map */

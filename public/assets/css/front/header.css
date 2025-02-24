@@ -1,0 +1,238 @@
+header {
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
+  margin-bottom: 0px;
+}
+header .container-fluid {
+  background: #131921 !important;
+}
+header .container-fluid input:focus-visible {
+  outline: 0px !important;
+}
+header a, header i, header p {
+  color: #fff !important;
+  font-family: "Inria Serif", serif;
+}
+header form i {
+  color: #000 !important;
+}
+
+#messagehere, #messagehere2 {
+  display: none;
+  margin-top: 15px;
+  font-size: 18px !important;
+}
+
+#failmessagehere, #failmessagehere2 {
+  display: none;
+  margin-top: 15px;
+  font-size: 18px !important;
+}
+
+#CtSpinner {
+  display: none;
+}
+
+.navb ul li {
+  padding-bottom: 12px;
+}
+.navb ul li:not(:last-child) {
+  margin-right: 35px;
+}
+
+.p-menu:hover > .submenu {
+  display: block;
+}
+
+.top-bar-text {
+  font-size: 11px !important;
+  line-height: 26px !important;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: bold;
+}
+
+.breadcrumbs {
+  background: #131921 !important;
+}
+.breadcrumbs a, .breadcrumbs p {
+  color: #fff !important;
+}
+
+.ds-header {
+  display: block;
+}
+
+.mb-header {
+  display: none;
+}
+
+#mbnav {
+  position: fixed;
+  top: 0px;
+  background: #000;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+  left: 0px;
+  z-index: 1000;
+  padding-left: 20px !important;
+  padding-top: 20px !important;
+  height: 100vh;
+  display: block;
+}
+#mbnav ul li {
+  display: block !important;
+  margin-bottom: 20px !important;
+}
+#mbnav ul li a {
+  font-size: 20px !important;
+}
+
+#mbnav {
+  display: none;
+}
+
+header .container-fluid {
+  background: #FAF9F6 !important;
+}
+
+header a, header i, header p {
+  color: #333 !important;
+  font-size: 16px;
+}
+
+.header-top-searchbar {
+  position: relative !important;
+  overflow: hidden;
+  border-radius: 5px !important;
+}
+.header-top-searchbar .search-input {
+  padding: 14px !important;
+  font-size: 18px;
+}
+.header-top-searchbar .search-btn {
+  width: 82px;
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  padding: 18px !important;
+  background: #565656 !important;
+  border: 0px !important;
+  border-radius: 0px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.header-top-searchbar .search-btn i {
+  font-size: 25px;
+}
+.header-top-searchbar .search-btn:hover {
+  background: rgba(0, 0, 0, 0.3529411765) !important;
+}
+
+.search-bar {
+  display: none;
+  z-index: 12;
+  position: fixed;
+  top: 0px;
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.7882352941);
+  height: 100vh;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.position-ll {
+  position: relative;
+  top: 4px;
+}
+
+.p-menu {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 30px;
+  width: 845px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  background: #fff;
+  display: none;
+}
+.submenu li {
+  padding-bottom: 5px !important;
+}
+.submenu li a {
+  font-family: "Nunito", serif;
+  font-size: 13px;
+}
+.submenu .col-3 {
+  padding: 3px !important;
+}
+.submenu .container {
+  padding: 20px 30px;
+}
+
+.nav-products img {
+  height: 300px !important;
+  width: 100% !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  margin-bottom: 10px;
+}
+
+.nav-products p {
+  font-family: "Nunito", serif;
+  font-size: 14px;
+}
+
+.sub-p-1 {
+  left: -180px;
+}
+
+.sub-p-2 {
+  left: -380px;
+}
+
+@media only screen and (max-width: 768px) {
+  .ds-header {
+    display: none;
+  }
+  .mb-header {
+    display: block;
+  }
+  #mbnav ul li a {
+    font-size: 20px !important;
+    color: #fff !important;
+    font-weight: 400;
+  }
+  #closeiconmenu {
+    margin-right: 20px;
+  }
+  #closeiconmenu i {
+    color: #fff !important;
+  }
+  .col-6 {
+    padding: 5px !important;
+  }
+  .mb-searchbar input {
+    background: #f0f5ff;
+    border: 1px solid rgba(0, 0, 0, 0.3333333333) !important;
+    padding: 8px;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0px !important;
+  }
+  .mb-searchbar button {
+    background: #f0f5ff;
+    border: 1px solid rgba(0, 0, 0, 0.3333333333) !important;
+    padding: 8px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: 0px !important;
+  }
+}/*# sourceMappingURL=header.css.map */

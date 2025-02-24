@@ -1,0 +1,4 @@
+1. Update Category ( Fixed Category issue :-  ussme 2 word ke Category add karne per filter kam nhi kar rha ha)
+2. Update Cart (Quantity update nhi ho rhi ha)
+3. Add Payment Gateway
+4. in backend add product with gallery (Bina gallery ke product add nhi ho rhe ha and update karne me bhi issue ho rha ha )

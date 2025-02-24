@@ -1,0 +1,57 @@
+.hover-first-img {
+  display: block;
+}
+
+.hover-second-img {
+  display: none !important;
+}
+
+.starrating {
+  margin-left: 0px !important;
+  margin-bottom: -10px;
+  margin-top: 5px;
+}
+.starrating .count-review {
+  height: 21px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  margin-left: 5px;
+}
+
+.scard:hover .hover-first-img {
+  display: none !important;
+}
+.scard:hover .hover-second-img {
+  display: block !important;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 56.25vw;
+  max-height: 77vh;
+  overflow: hidden;
+}
+.hero-section iframe {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  transform: scale(1.6);
+}
+
+@media screen and (max-width: 980px) {
+  .hero-section {
+    height: 265px !important;
+    max-height: 100vh;
+  }
+  .hero-section iframe {
+    height: 242px !important;
+    top: -22px;
+    transform: scaleX(1);
+  }
+}/*# sourceMappingURL=home.css.map */

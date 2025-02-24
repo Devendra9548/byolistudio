@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <p class="text-center m-0 text-white top-bar-text">2 Free shipping in India | Worldwide Free Shipping
+                <p class="text-center m-0 text-white top-bar-text">Free shipping in India | Worldwide Free Shipping
                     Above ₹20,000
                 </p>
             </div>

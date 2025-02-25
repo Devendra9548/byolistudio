@@ -15,47 +15,94 @@
 @if($homepage->selecthero == 0)
     <div class="hero-section-slider">
         @if($homepage->slide1)
-        <div>
+        <div class="for-desktop-slides">
             <img src="/home/{{$homepage->slide1}}" alt="{{$homepage->slide1}}"
                 width="100%">
         </div>
         @endif
         @if($homepage->slide2)
-        <div>
+        <div class="for-desktop-slides">
             <img src="/home/{{$homepage->slide2}}" alt="{{$homepage->slide2}}"
                 width="100%">
         </div>
         @endif
         @if($homepage->slide3)
-        <div>
+        <div class="for-desktop-slides">
             <img src="/home/{{$homepage->slide3}}" alt="{{$homepage->slide3}}"
                 width="100%">
         </div>
         @endif
         @if($homepage->slide4)
-        <div>
+        <div class="for-desktop-slides">
             <img src="/home/{{$homepage->slide4}}" alt="{{$homepage->slide4}}"
                 width="100%">
         </div>
         @endif
         @if($homepage->slide5)
-        <div>
+        <div class="for-desktop-slides">
             <img src="/home/{{$homepage->slide5}}" alt="{{$homepage->slide5}}"
                 width="100%">
         </div>
         @endif
         @if($homepage->slide6)
-        <div>
+        <div class="for-desktop-slides">
             <img src="/home/{{$homepage->slide6}}" alt="{{$homepage->slide6}}"
                 width="100%">
         </div>
         @endif
         @if($homepage->slide7)
-        <div>
+        <div class="for-desktop-slides">
             <img src="/home/{{$homepage->slide7}}" alt="{{$homepage->slide7}}"
                 width="100%">
         </div>
         @endif
+
+
+        <!-- For Mobile -->
+
+        @if($homepage->mbslide1)
+        <div class="for-mb-slides">
+            <img src="/home/{{$homepage->mbslide1}}" alt="{{$homepage->mbslide1}}"
+                width="100%">
+        </div>
+        @endif
+        @if($homepage->mbslide2)
+        <div class="for-mb-slides">
+            <img src="/home/{{$homepage->mbslide2}}" alt="{{$homepage->mbslide2}}"
+                width="100%">
+        </div>
+        @endif
+        @if($homepage->mbslide3)
+        <div class="for-mb-slides">
+            <img src="/home/{{$homepage->mbslide3}}" alt="{{$homepage->mbslide3}}"
+                width="100%">
+        </div>
+        @endif
+        @if($homepage->mbslide4)
+        <div class="for-mb-slides">
+            <img src="/home/{{$homepage->mbslide4}}" alt="{{$homepage->mbslide4}}"
+                width="100%">
+        </div>
+        @endif
+        @if($homepage->mbslide5)
+        <div class="for-mb-slides">
+            <img src="/home/{{$homepage->mbslide5}}" alt="{{$homepage->mbslide5}}"
+                width="100%">
+        </div>
+        @endif
+        @if($homepage->mbslide6)
+        <div class="for-mb-slides">
+            <img src="/home/{{$homepage->mbslide6}}" alt="{{$homepage->mbslide6}}"
+                width="100%">
+        </div>
+        @endif
+        @if($homepage->mbslide7)
+        <div class="for-mb-slides">
+            <img src="/home/{{$homepage->mbslide7}}" alt="{{$homepage->mbslide7}}"
+                width="100%">
+        </div>
+        @endif
+
     </div>
  @else
  <div class="hero-section">

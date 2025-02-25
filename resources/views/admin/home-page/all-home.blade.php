@@ -27,6 +27,8 @@ Home Page
             <div class="col-12">
                 <form action="" id="addHome" enctype="multipart/form-data" class="edit-blogs">
                     @csrf
+                    <h2>For Desktop Only</h2>
+                    <hr>
                     <input type="hidden" name="id" id="hiddenid" value="{{ $members->id }}">
                     <label for="title" class="h6 mt-3" style="font-size:22px">Slide 1 (Size: 1920*694)</label>
                     <input type="file" class="form-control" name="slide1" id="imageInput" accept="image/*"
@@ -71,12 +73,64 @@ Home Page
                     <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
                             src="/home/{{ $members->slide7 }}" alt="" width="150px" class="mb-3"></div>
 
-                    <label for="video" class="h6 mt-3" style="font-size:22px">Youtube Video ID</label><a href="/assets/imgs/youtube-id.jpeg" target="_blank" class="btn btn-primary" style="font-size: 12px !important;margin-top: -10px;margin-left: 10px;
+                    <br><br><br><br>
+                    <h2>For Mobile Only</h2>
+                    <hr>
+
+                    <label for="title" class="h6 mt-3" style="font-size:22px">Slide 1 (Size: 527*573)</label>
+                    <input type="file" class="form-control" name="mbslide1" id="imageInput" accept="image/*"
+                        onchange="previewImage()">
+                    <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
+                            src="/home/{{ $members->mbslide1 }}" alt="" width="150px" class="mb-3"></div>
+
+                    <label for="title" class="h6 mt-3" style="font-size:22px">Slide 2 (Size: 527*573)</label>
+                    <input type="file" class="form-control" name="mbslide2" id="imageInput" accept="image/*"
+                        onchange="previewImage()">
+                    <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
+                            src="/home/{{ $members->mbslide2 }}" alt="" width="150px" class="mb-3"></div>
+
+
+                    <label for="title" class="h6 mt-3" style="font-size:22px">Slide 3 (Size: 527*573)</label>
+                    <input type="file" class="form-control" name="mbslide3" id="imageInput" accept="image/*"
+                        onchange="previewImage()">
+                    <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
+                            src="/home/{{ $members->mbslide3 }}" alt="" width="150px" class="mb-3"></div>
+
+                    <label for="title" class="h6 mt-3" style="font-size:22px">Slide 4 (Size: 527*573)</label>
+                    <input type="file" class="form-control" name="mbslide4" id="imageInput" accept="image/*"
+                        onchange="previewImage()">
+                    <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
+                            src="/home/{{ $members->mbslide4 }}" alt="" width="150px" class="mb-3"></div>
+
+                    <label for="title" class="h6 mt-3" style="font-size:22px">Slide 5 (Size: 527*573)</label>
+                    <input type="file" class="form-control" name="mbslide5" id="imageInput" accept="image/*"
+                        onchange="previewImage()">
+                    <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
+                            src="/home/{{ $members->mbslide5 }}" alt="" width="150px" class="mb-3"></div>
+
+                    <label for="title" class="h6 mt-3" style="font-size:22px">Slide 6 (Size: 527*573)</label>
+                    <input type="file" class="form-control" name="mbslide6" id="imageInput" accept="image/*"
+                        onchange="previewImage()">
+                    <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
+                            src="/home/{{ $members->mbslide6 }}" alt="" width="150px" class="mb-3"></div>
+
+
+                    <label for="title" class="h6 mt-3" style="font-size:22px">Slide 7 (Size: 527*573)</label>
+                    <input type="file" class="form-control" name="mbslide7" id="imageInput" accept="image/*"
+                        onchange="previewImage()">
+                    <div id="preview" style="width:100%;overflow:hidden;margin-top:20px"><img
+                            src="/home/{{ $members->mbslide7 }}" alt="" width="150px" class="mb-3"></div>
+
+                    <br><br><br><br>
+                    <h2>Additional Settings</h2>
+                    <hr>
+
+                    <label for="video" class="h6 mt-3" style="font-size:22px">Youtube Video ID</label><a
+                        href="/assets/imgs/youtube-id.jpeg" target="_blank" class="btn btn-primary" style="font-size: 12px !important;margin-top: -10px;margin-left: 10px;
 }">Help?</a>
                     <input type="text" name="video" class="form-control py-3 h6" placeholder="Title here..."
                         value="{{ $members->video }}">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/{{ $members->video }}"
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $members->video }}"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -93,6 +147,8 @@ Home Page
                         <option value="0">Image Slider</option>
                         @endif
                     </select><br>
+
+
 
 
 

@@ -1737,6 +1737,174 @@ function UpdateHome(Request $req)
 
   }
   
+  if ($req->hasFile('mbslide1')) {
+    $image = $req->file('mbslide1');
+    $name = $image->getClientOriginalName();
+    $t=time();
+    $d=date("Y-m-d",$t);
+    $origname = $d."-".$t."-".$name;
+    $customFolderPath = public_path('home');
+    $image->move($customFolderPath, $origname);
+    $dbs->mbslide1 = $origname;
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(244, 300);
+    $thumbnailPath = public_path('homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(100, 123);
+    $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+
+  }
+
+  if ($req->hasFile('mbslide2')) {
+    $image = $req->file('mbslide2');
+    $name = $image->getClientOriginalName();
+    $t=time();
+    $d=date("Y-m-d",$t);
+    $origname = $d."-".$t."-".$name;
+    $customFolderPath = public_path('home');
+    $image->move($customFolderPath, $origname);
+    $dbs->mbslide2 = $origname;
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(244, 300);
+    $thumbnailPath = public_path('homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(100, 123);
+    $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+
+  }
+
+  if ($req->hasFile('mbslide3')) {
+    $image = $req->file('mbslide3');
+    $name = $image->getClientOriginalName();
+    $t=time();
+    $d=date("Y-m-d",$t);
+    $origname = $d."-".$t."-".$name;
+    $customFolderPath = public_path('home');
+    $image->move($customFolderPath, $origname);
+    $dbs->mbslide3 = $origname;
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(244, 300);
+    $thumbnailPath = public_path('homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(100, 123);
+    $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+
+  }
+
+  if ($req->hasFile('mbslide4')) {
+    $image = $req->file('mbslide4');
+    $name = $image->getClientOriginalName();
+    $t=time();
+    $d=date("Y-m-d",$t);
+    $origname = $d."-".$t."-".$name;
+    $customFolderPath = public_path('home');
+    $image->move($customFolderPath, $origname);
+    $dbs->mbslide4 = $origname;
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(244, 300);
+    $thumbnailPath = public_path('homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(100, 123);
+    $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+
+  }
+
+  if ($req->hasFile('mbslide5')) {
+    $image = $req->file('mbslide5');
+    $name = $image->getClientOriginalName();
+    $t=time();
+    $d=date("Y-m-d",$t);
+    $origname = $d."-".$t."-".$name;
+    $customFolderPath = public_path('home');
+    $image->move($customFolderPath, $origname);
+    $dbs->mbslide5 = $origname;
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(244, 300);
+    $thumbnailPath = public_path('homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(100, 123);
+    $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+
+  }
+
+  if ($req->hasFile('mbslide6')) {
+    $image = $req->file('mbslide6');
+    $name = $image->getClientOriginalName();
+    $t=time();
+    $d=date("Y-m-d",$t);
+    $origname = $d."-".$t."-".$name;
+    $customFolderPath = public_path('home');
+    $image->move($customFolderPath, $origname);
+    $dbs->mbslide6 = $origname;
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(244, 300);
+    $thumbnailPath = public_path('homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(100, 123);
+    $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+
+  }
+
+  if ($req->hasFile('mbslide7')) {
+    $image = $req->file('mbslide7');
+    $name = $image->getClientOriginalName();
+    $t=time();
+    $d=date("Y-m-d",$t);
+    $origname = $d."-".$t."-".$name;
+    $customFolderPath = public_path('home');
+    $image->move($customFolderPath, $origname);
+    $dbs->mbslide7 = $origname;
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(244, 300);
+    $thumbnailPath = public_path('homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+    
+    $imagePath = public_path('home/' . $origname);
+    $imagess = Image::make($imagePath);
+    $thumbnail = $imagess->resize(100, 123);
+    $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
+    $thumbnail->save($thumbnailPath);
+
+  }
+  
   
   $dbs->video = $req->video;
   $dbs->selecthero = $req->selecthero;

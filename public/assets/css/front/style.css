@@ -151,6 +151,14 @@ p {
   display: none;
 }
 
+.for-desktop-slides {
+  display: block !important;
+}
+
+.for-mb-slides {
+  display: none !important;
+}
+
 @keyframes highlightText {
   0% {
     color: black;
@@ -163,8 +171,14 @@ p {
   }
 }
 @media only screen and (max-width: 768px) {
+  .for-desktop-slides {
+    display: none !important;
+  }
+  .for-mb-slides {
+    display: block !important;
+  }
   .hero-section-slider img {
-    height: 17vh !important;
+    height: 50vh !important;
     -o-object-fit: cover !important;
     object-fit: cover !important;
     -o-object-position: top;

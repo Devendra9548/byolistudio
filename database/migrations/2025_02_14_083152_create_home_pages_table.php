@@ -20,6 +20,13 @@ return new class extends Migration
             $table->string('slide5')->nullable();
             $table->string('slide6')->nullable();
             $table->string('slide7')->nullable();
+            $table->string('mbslide1')->nullable();
+            $table->string('mbslide2')->nullable();
+            $table->string('mbslide3')->nullable();
+            $table->string('mbslide4')->nullable();
+            $table->string('mbslide5')->nullable();
+            $table->string('mbslide6')->nullable();
+            $table->string('mbslide7')->nullable();
             $table->string('video')->nullable();
             $table->integer('selecthero')->nullable();
             $table->timestamps();

@@ -39,11 +39,10 @@ All Orders
     <!-- second section -->
     <div class="container mt-5">
         <div class="row bg-white mx-1">
-            <div class="col-6 d-flex justify-content-start align-items-center">
+            <div class="col-12 d-flex justify-content-between align-items-center">
                 <p class="m-0 py-3 fs-5 fw-bold"> All Orders</p>
-            </div>
-            <div class="col-6 d-flex justify-content-center align-items-center">
-               
+                <p class="m-0 py-3 fs-5 pe-3 fw-bold"> Total Orders: <span
+                        class="text-success" id="totalnumberOfOrders">0</span></p>
             </div>
         </div><br>
         <div class="row bg-white mx-1">
@@ -59,30 +58,40 @@ All Orders
                             <th>Purchased Date</th>
                             <th>Actions</th>
                         </tr>
+                        <?php
+                           $totalnumberOfOrders=0;
+                        ?>
                         @foreach($orders as $order)
-                        @if($order->paymethod == "COD" || ($order->payment_id != '' && $order->paystatus == 2 &&  $order->rzp_order_id != ''))
-                           <tr>
-                              <td class="">#{{ $order->orderid }}</td>
-                              <td class="">{{ $order->username }}</td>
-                              <td style="color:green;font-weight:bold">Rs. {{ $order->amount }}</td>
-                              <td>{{ $order->paymethod }}</td>
-                              <td class="">
-                                  @if($order->paystatus == 2)
-                                  <span class="text-success fw-bold">Success</span>
-                                  @else
-                                  <span class="text-danger fw-bold">Failed</span>
-                                  @endif
-                                  </td>
-                              <td class="">{{ \Carbon\Carbon::parse($order->created_at)->format('d M Y, h:ia') }}</td>
-                              <td>
+                        @if($order->paymethod == "COD" || ($order->payment_id != '' && $order->paystatus == 2 &&
+                        $order->rzp_order_id != ''))
+                        <tr>
+                            <?php
+                            $totalnumberOfOrders++;
+                            ?>
+                            <td class="">#{{ $order->orderid }}</td>
+                            <td class="">{{ $order->username }}</td>
+                            <td style="color:green;font-weight:bold">Rs. {{ $order->amount }}</td>
+                            <td>{{ $order->paymethod }}</td>
+                            <td class="">
+                                @if($order->paystatus == 2)
+                                <span class="text-success fw-bold">Success</span>
+                                @else
+                                <span class="text-danger fw-bold">Failed</span>
+                                @endif
+                            </td>
+                            <td class="">{{ \Carbon\Carbon::parse($order->created_at)->format('d M Y, h:ia') }}</td>
+                            <td>
                                 <a href="/admin/all-orders/{{ $order->orderid }}" class="btn btn-primary">View More</a>
-                              </td>
-                           </tr>
+                            </td>
+                        </tr>
                         @endif
                         @endforeach
+
+
                     </thead>
-                  
+
                 </table>
+                <input type="text" value="{{ ($totalnumberOfOrders) }}" id="totalnumberOfOrdershidden" > 
             </div>
         </div>
     </div>
@@ -90,6 +99,12 @@ All Orders
 </div>
 <script src="/assets/js/admin/all_plugins.js"></script>
 <script src="/assets/js/admin/rte.js"></script>
+
+<script>
+    var totalnumberOfOrdershidden = document.querySelector("#totalnumberOfOrdershidden").value;
+    document.querySelector("#totalnumberOfOrders").innerHTML = totalnumberOfOrdershidden;
+    
+</script>
 <script>
 var editor1cfg = {}
 editor1cfg.toolbar = "basic";

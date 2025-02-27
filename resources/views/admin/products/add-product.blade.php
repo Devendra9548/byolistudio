@@ -43,7 +43,9 @@ Add Products
                 </select><br>
                 <label for="sizes">Select Sizes</label><br>
                 <input type="hidden" class="sizes" name="sizes" id="sizes" value="">
-                <input type="checkbox" class="form-check-input p-1 border border-dark" id="s" name="s" value="s"
+                <input type="checkbox" class="form-check-input p-1 border border-dark" id="fs" name="fs" value="fs"
+                    onchange="updateInput2(this.value)" checked> Free Size
+                <!-- <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="s" name="s" value="s"
                     onchange="updateInput2(this.value)"> Small
                 <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="m" name="m" value="m"
                     onchange="updateInput2(this.value)"> Medium
@@ -52,7 +54,7 @@ Add Products
                 <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="xl" name="xl" value="xl"
                     onchange="updateInput2(this.value)"> Extra Large
                 <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="xxl" name="xxl"
-                    value="xxl" onchange="updateInput2(this.value)"> Double Extra Large
+                    value="xxl" onchange="updateInput2(this.value)"> Double Extra Large -->
                 <br><br><br>
                 <label for="div_editor1">Description</label><br>
                 <textarea id="div_editor1" name="description"></textarea><br>

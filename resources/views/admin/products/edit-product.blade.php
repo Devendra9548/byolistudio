@@ -23,7 +23,9 @@
     <label>Default Sizes : <b style="text-transform:uppercase">{{$members->sizes}}</b></label><br><br>
     <label for="sizes">Change Sizes</label><br>
     <input type="hidden" class="sizes" name="sizes" id="sizes" value=""><br>
-    <input type="checkbox" class="form-check-input p-1 border border-dark" id="s" name="s" value="s"
+    <input type="checkbox" class="form-check-input p-1 border border-dark" id="fs" name="fs" value="fs"
+        onchange="updateInput2(this.value)"> Free Size
+    <!-- <input type="checkbox" class="form-check-input p-1 border border-dark" id="s" name="s" value="s"
         onchange="updateInput2(this.value)"> Small
     <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="m" name="m" value="m"
         onchange="updateInput2(this.value)"> Medium
@@ -32,7 +34,7 @@
     <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="xl" name="xl" value="xl"
         onchange="updateInput2(this.value)"> Extra Large
     <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="xxl" name="xxl" value="xxl"
-        onchange="updateInput2(this.value)"> Double Extra Large
+        onchange="updateInput2(this.value)"> Double Extra Large -->
     <br><br><br>
     <label for="div_editor1">Description</label><br>
     <textarea id="div_editor1" name="description">{{ $members->description }}</textarea><br>

@@ -200,7 +200,7 @@ p {
     border-radius: 10px !important;
   }
   .prev-arrow, .next-arrow {
-    top: 36%;
+    top: 46%;
     z-index: 999;
     font-size: 9px;
     background: transparent;

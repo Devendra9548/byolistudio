@@ -16,17 +16,17 @@ class WebSafty
     public function handle(Request $request, Closure $next): Response
     {
 
-        session()->put('userid', 129);
-        if($request->age == 129){
-            session()->put('userid', 129);
+        session()->put('userid', 9548161909);
+        if($request->age == 9548161909){
+            session()->put('userid', 9548161909);
         }
-        if(session()->get('userid') == 129){
+        if(session()->get('userid') == 9548161909){
              return $next($request);
         }
-        if($request->age == 'admin@9548'){
-            session()->put('userid', 'admin@9548');
+        if($request->age == 'devendrasingh214612@gmail.com'){
+            session()->put('userid', 'devendrasingh214612@gmail.com');
         }
-        if(session()->get('userid') == 'admin@9548'){
+        if(session()->get('userid') == 'devendrasingh214612@gmail.com'){
             return redirect("/dev");
         }
         else{

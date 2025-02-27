@@ -27,6 +27,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/assets/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/front/single-product.css" />
+    <style>
+       
+        textarea::placeholder {
+            color: #0009!important;
+            opacity: 1; 
+        }
+    </style>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -220,14 +227,20 @@
                     @endif
 
 
-                    <p class="mt-4 mb-2"><b>Select Size</b></p>
+                    <p class="mt-4 mb-2"><b>Write Your Free Size</b></p>
                     <?php
                       $string = $product->sizes;
                       $words = explode(", ", $string); 
                       ?>
 
-                    <div class="sizes d-flex justify-content-start">
+                    <div class="sizes">
                         @foreach($words as $word)
+                        @if($word == 'fs')
+                        <div class="size me-3">
+                            <textarea name="size" id="" placeholder="Like:&#10;Blouse: Fits up to 38 inches (Can be altered up to 42 inches)&#10;Lehenga Waist: Adjustable, fits up to 42 inches&#10;Lehenga Length: Approx. 42-44 inches" style="width: 100%;height: 196px;"></textarea>
+
+                        </div>
+                        @endif
                         @if($word == 's')
                         <div class="size me-3">
                             <input id="size" class="form-check-input" value="S" type="radio" name="size" checked>

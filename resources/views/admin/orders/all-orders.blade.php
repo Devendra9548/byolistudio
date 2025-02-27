@@ -60,8 +60,7 @@ All Orders
                             <th>Actions</th>
                         </tr>
                         @foreach($orders as $order)
-                        @if($order->paymethod == "COD" || ($order->payment_id != '' &&
-                                            $order->rzp_order_id != ''))
+                        @if($order->paymethod == "COD" || ($order->payment_id != '' && $order->paystatus == 2 &&  $order->rzp_order_id != ''))
                            <tr>
                               <td class="">#{{ $order->orderid }}</td>
                               <td class="">{{ $order->username }}</td>

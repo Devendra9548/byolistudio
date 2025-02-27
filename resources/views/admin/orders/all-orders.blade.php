@@ -91,7 +91,7 @@ All Orders
                     </thead>
 
                 </table>
-                <input type="text" value="{{ ($totalnumberOfOrders) }}" id="totalnumberOfOrdershidden" > 
+                <input type="hidden" value="{{ ($totalnumberOfOrders) }}" id="totalnumberOfOrdershidden" > 
             </div>
         </div>
     </div>

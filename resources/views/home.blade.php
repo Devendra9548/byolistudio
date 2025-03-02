@@ -204,7 +204,7 @@
                                 @endif
 
                                 <p class="title">{{ $product->p_name }}</p>
-                                <p class="price pt-1">₹{{ $product->p_price }}</p>
+                                <p class="price pt-1">₹{{ $product->r_price }}</p>
 
                                 <p class="offer"><?php
                       $actval = $product->p_price; // 12000
@@ -308,7 +308,7 @@
                                 @endif
 
                                 <p class="title">{{ $product->p_name }}</p>
-                                <p class="price pt-1">₹{{ $product->p_price }}</p>
+                                <p class="price pt-1">₹{{ $product->r_price }}</p>
 
                                 <p class="offer"><?php
                       $actval = $product->p_price; // 12000
@@ -413,7 +413,7 @@
                                 @endif
 
                                 <p class="title">{{ $product->p_name }}</p>
-                                <p class="price pt-1">₹{{ $product->p_price }}</p>
+                                <p class="price pt-1">₹{{ $product->r_price }}</p>
 
                                 <p class="offer"><?php
                       $actval = $product->p_price; // 12000
@@ -517,7 +517,7 @@
                                 @endif
 
                                 <p class="title">{{ $product->p_name }}</p>
-                                <p class="price pt-1">₹{{ $product->p_price }}</p>
+                                <p class="price pt-1">₹{{ $product->r_price }}</p>
 
                                 <p class="offer"><?php
                       $actval = $product->p_price; // 12000

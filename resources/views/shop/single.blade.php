@@ -408,7 +408,7 @@
             <div class="mb-4">
                 <label for="review" class="form-label">Add a written review</label>
                 <textarea name="preview" class="form-control" id="review" rows="4"
-                    placeholder="What did you like or dislike? What did you use this product for?" required></textarea>
+                    placeholder="What did you like or dislike? What did you use this product for?" style="width: 100%;height: 160px;" required></textarea>
             </div>
 
             <p class="text-muted">We will notify you via email as soon as your review is processed.</p>

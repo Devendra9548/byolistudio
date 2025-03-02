@@ -852,7 +852,8 @@ function allproducts(Request $req){
 function addproduct(){
   if(Cookie::has('pswd')){
     $dbs = ProductCategory::all();
-    return view('admin.products.add-product',['members'=>$dbs]);
+    $ps = Product::all();
+    return view('admin.products.add-product',['members'=>$dbs,'ps'=>$ps]);
   }
   else{
     return redirect('admin');
@@ -1902,7 +1903,6 @@ function UpdateHome(Request $req)
     $thumbnail = $imagess->resize(100, 123);
     $thumbnailPath = public_path('recent-homes-thumb/' . $origname);
     $thumbnail->save($thumbnailPath);
-
   }
   
   

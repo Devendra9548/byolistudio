@@ -6,6 +6,26 @@ Add Products
 @section('customcss')
 <link rel="stylesheet" type="text/css" href="/assets/css/admin/rte_theme_default.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/admin/blogs.css">
+<script>
+function getSlug(slug) {
+    var selectElement = document.getElementById("slugids");
+    var options = selectElement.options;
+
+    for (let i = 0; i < options.length; i++) {
+        console.log(options[i].value);
+        if(options[i].value == slug){
+            document.querySelector("#errorslug").style.display="block";
+            document.querySelector("#correctslug").style.display="none";
+        }
+        else{
+            document.querySelector("#correctslug").style.display="block";
+            document.querySelector("#errorslug").style.display="none";
+            
+        }
+    }
+
+}
+</script>
 @endsection
 
 @section('body')
@@ -17,6 +37,11 @@ Add Products
     <div class="container mt-5">
         <div class="form">
             <h2>Add New Product</h2>
+            <select id="slugids" hidden>
+                @foreach($ps as $ps)
+                <option value="{{ $ps['slug'] }}"> </option>
+                @endforeach
+            </select>
             <hr><br>
             <form id="addProduct" method="get" action="" enctype="multipart/form-data">
                 @csrf
@@ -25,7 +50,9 @@ Add Products
                 <br>
                 <label for="slug">Slug</label>
                 <input type="text" name="slug" id="slug" class="form-control py-3 h6"
-                    placeholder="Slug here... like: /slug/here..">
+                    placeholder="Slug here... like: /slug/here.." onchange="getSlug(this.value)">
+                <span id="errorslug" class="text-danger fw-bold" style="display:none">Slug Already Taken please Use Different Name</span>
+                <span id="correctslug" class="text-success fw-bold" style="display:none">Valid Slug</span>
                 <br>
                 <label for="p_price">Regular Price</label>
                 <input type="number" name="p_price" id="p_price" class="form-control py-3 h6"
@@ -42,9 +69,9 @@ Add Products
                     @endforeach
                 </select><br>
                 <label for="sizes">Select Sizes</label><br>
-                <input type="hidden" class="sizes" name="sizes" id="sizes" value="">
+                <input type="hidden" class="sizes" name="sizes" id="sizes" value="fs">
                 <input type="checkbox" class="form-check-input p-1 border border-dark" id="fs" name="fs" value="fs"
-                    onchange="updateInput2(this.value)" checked> Free Size
+                    checked> Free Size
                 <!-- <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="s" name="s" value="s"
                     onchange="updateInput2(this.value)"> Small
                 <input type="checkbox" class="form-check-input p-1 ms-3 border border-dark" id="m" name="m" value="m"

@@ -36,96 +36,7 @@
     </style>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
-    <script>
-    $('.slideshow-thumbnails').hover(function() {
-        changeSlide($(this));
-    });
-
-    if ($(window).width() > 468) {
-
-        $(document).mousemove(function(e) {
-            var x = e.clientX;
-            var y = e.clientY;
-
-            var imgx1 = $('.slideshow-items.active').offset().left;
-            var imgx2 = $('.slideshow-items.active').outerWidth() + imgx1;
-            var imgy1 = $('.slideshow-items.active').offset().top;
-            var imgy2 = $('.slideshow-items.active').outerHeight() + imgy1;
-
-            if (x > imgx1 && x < imgx2 && y > imgy1 && y < imgy2) {
-                $('#lens').show();
-                $('#result').show();
-                imageZoom($('.slideshow-items.active'), $('#result'), $('#lens'));
-            } else {
-                $('#lens').hide();
-                $('#result').hide();
-            }
-        });
-
-        function imageZoom(img, result, lens) {
-            result.width(img.innerWidth());
-            result.height(img.innerHeight());
-            lens.width(img.innerWidth() / 2);
-            lens.height(img.innerHeight() / 2);
-
-            result.offset({
-                top: img.offset().top,
-                left: img.offset().left + img.outerWidth() + 50
-            });
-
-            var cx = img.innerWidth() / lens.innerWidth();
-            var cy = img.innerHeight() / lens.innerHeight();
-
-            result.css('backgroundImage', 'url(' + img.attr('src') + ')');
-            result.css('backgroundSize', img.width() * cx + 'px ' + img.height() * cy + 'px');
-
-            lens.mousemove(function(e) {
-                moveLens(e);
-            });
-            img.mousemove(function(e) {
-                moveLens(e);
-            });
-            lens.on('touchmove', function() {
-                moveLens();
-            });
-            img.on('touchmove', function() {
-                moveLens();
-            });
-
-            function moveLens(e) {
-                var x = e.clientX - lens.outerWidth() / 2;
-                var y = e.clientY - lens.outerHeight() / 2;
-                if (x > img.outerWidth() + img.offset().left - lens.outerWidth()) {
-                    x = img.outerWidth() + img.offset().left - lens.outerWidth();
-                }
-                if (x < img.offset().left) {
-                    x = img.offset().left;
-                }
-                if (y > img.outerHeight() + img.offset().top - lens.outerHeight()) {
-                    y = img.outerHeight() + img.offset().top - lens.outerHeight();
-                }
-                if (y < img.offset().top) {
-                    y = img.offset().top;
-                }
-                lens.offset({
-                    top: y,
-                    left: x
-                });
-                result.css('backgroundPosition', '-' + (x - img.offset().left) * cx + 'px -' + (y - img.offset().top) *
-                    cy +
-                    'px');
-            }
-        }
-    }
-
-    function changeSlide(elm) {
-        $('.slideshow-items').removeClass('active');
-        $('.slideshow-items').eq(elm.index()).addClass('active');
-        $('.slideshow-thumbnails').removeClass('active');
-        $('.slideshow-thumbnails').eq(elm.index()).addClass('active');
-    }
-    </script>
-
+    
 </head>
 
 <body class="single-product-page">
@@ -237,8 +148,7 @@
                         @foreach($words as $word)
                         @if($word == 'fs')
                         <div class="size me-3">
-                            <textarea name="size" id="" placeholder="Like:&#10;Blouse: Fits up to 38 inches (Can be altered up to 42 inches)&#10;Lehenga Waist: Adjustable, fits up to 42 inches&#10;Lehenga Length: Approx. 42-44 inches" style="width: 100%;height: 196px;"></textarea>
-
+                            <textarea name="size" id="" placeholder="Write Your Free Size"></textarea>
                         </div>
                         @endif
                         @if($word == 's')
@@ -530,94 +440,110 @@
 <script src="/assets/js/front/productreview.js"></script>
 
 <script>
-$('.slideshow-thumbnails').hover(function() {
-    changeSlide($(this));
-});
+    $(document).ready(function () {
+    let $slideshowItems = $('.slideshow-items'),
+        $slideshowThumbnails = $('.slideshow-thumbnails'),
+        $lens = $('#lens'),
+        $result = $('#result'),
+        $activeImg = null,
+        cx, cy;
 
-if ($(window).width() > 768) {
+    // Set initial active image
+    function init() {
+        let $firstSlide = $slideshowItems.first();
+        $firstSlide.addClass('active');
+        $slideshowThumbnails.first().addClass('active');
+        $activeImg = $firstSlide;
+        updateZoom();
+    }
 
-    $(document).mousemove(function(e) {
-        var x = e.clientX;
-        var y = e.clientY;
-
-        var imgx1 = $('.slideshow-items.active').offset().left;
-        var imgx2 = $('.slideshow-items.active').outerWidth() + imgx1;
-        var imgy1 = $('.slideshow-items.active').offset().top;
-        var imgy2 = $('.slideshow-items.active').outerHeight() + imgy1;
-
-        if (x > imgx1 && x < imgx2 && y > imgy1 && y < imgy2) {
-            $('#lens').show();
-            $('#result').show();
-            imageZoom($('.slideshow-items.active'), $('#result'), $('#lens'));
-        } else {
-            $('#lens').hide();
-            $('#result').hide();
-        }
+    // Optimize hover event with "mouseenter"
+    $slideshowThumbnails.on('mouseenter', function () {
+        changeSlide($(this));
     });
 
-    function imageZoom(img, result, lens) {
-        result.width(img.innerWidth());
-        result.height(img.innerHeight());
-        lens.width(img.innerWidth() / 2);
-        lens.height(img.innerHeight() / 2);
+    if ($(window).width() > 768) {
+        $(document).on('mousemove', function (e) {
+            if (!$activeImg) return;
 
-        result.offset({
-            top: img.offset().top,
-            left: img.offset().left + img.outerWidth() + 50
+            let x = e.clientX,
+                y = e.clientY,
+                imgOffset = $activeImg.offset(),
+                imgWidth = $activeImg.outerWidth(),
+                imgHeight = $activeImg.outerHeight();
+
+            if (x > imgOffset.left && x < imgOffset.left + imgWidth &&
+                y > imgOffset.top && y < imgOffset.top + imgHeight) {
+                $lens.show();
+                $result.show();
+                updateZoom();
+                moveLens(e);
+            } else {
+                $lens.hide();
+                $result.hide();
+            }
         });
 
-        var cx = img.innerWidth() / lens.innerWidth();
-        var cy = img.innerHeight() / lens.innerHeight();
+        function updateZoom() {
+            if (!$activeImg) return;
 
-        result.css('backgroundImage', 'url(' + img.attr('src') + ')');
-        result.css('backgroundSize', img.width() * cx + 'px ' + img.height() * cy + 'px');
+            let imgWidth = $activeImg.innerWidth(),
+                imgHeight = $activeImg.innerHeight();
 
-        lens.mousemove(function(e) {
-            moveLens(e);
-        });
-        img.mousemove(function(e) {
-            moveLens(e);
-        });
-        lens.on('touchmove', function() {
-            moveLens();
-        });
-        img.on('touchmove', function() {
-            moveLens();
-        });
+            $result.css({
+                width: imgWidth,
+                height: imgHeight,
+                backgroundImage: `url(${$activeImg.attr('src')})`,
+                backgroundSize: `${imgWidth * cx}px ${imgHeight * cy}px`
+            });
+
+            $lens.css({
+                width: imgWidth / 2,
+                height: imgHeight / 2
+            });
+
+            let imgOffset = $activeImg.offset();
+            $result.offset({
+                top: imgOffset.top,
+                left: imgOffset.left + $activeImg.outerWidth() + 50
+            });
+
+            cx = imgWidth / $lens.innerWidth();
+            cy = imgHeight / $lens.innerHeight();
+        }
 
         function moveLens(e) {
-            var x = e.clientX - lens.outerWidth() / 2;
-            var y = e.clientY - lens.outerHeight() / 2;
-            if (x > img.outerWidth() + img.offset().left - lens.outerWidth()) {
-                x = img.outerWidth() + img.offset().left - lens.outerWidth();
-            }
-            if (x < img.offset().left) {
-                x = img.offset().left;
-            }
-            if (y > img.outerHeight() + img.offset().top - lens.outerHeight()) {
-                y = img.outerHeight() + img.offset().top - lens.outerHeight();
-            }
-            if (y < img.offset().top) {
-                y = img.offset().top;
-            }
-            lens.offset({
-                top: y,
-                left: x
-            });
-            result.css('backgroundPosition', '-' + (x - img.offset().left) * cx + 'px -' + (y - img.offset().top) * cy +
-                'px');
+            let imgOffset = $activeImg.offset(),
+                lensWidth = $lens.outerWidth(),
+                lensHeight = $lens.outerHeight();
+
+            let x = e.clientX - lensWidth / 2;
+            let y = e.clientY - lensHeight / 2;
+
+            x = Math.max(imgOffset.left, Math.min(x, imgOffset.left + $activeImg.outerWidth() - lensWidth));
+            y = Math.max(imgOffset.top, Math.min(y, imgOffset.top + $activeImg.outerHeight() - lensHeight));
+
+            $lens.offset({ top: y, left: x });
+
+            $result.css('backgroundPosition', `-${(x - imgOffset.left) * cx}px -${(y - imgOffset.top) * cy}px`);
         }
     }
-}
 
-function changeSlide(elm) {
-    $('.slideshow-items').removeClass('active');
-    $('.slideshow-items').eq(elm.index()).addClass('active');
-    $('.slideshow-thumbnails').removeClass('active');
-    $('.slideshow-thumbnails').eq(elm.index()).addClass('active');
-}
+    function changeSlide(elm) {
+        let index = elm.index();
+        $slideshowItems.removeClass('active').eq(index).addClass('active');
+        $slideshowThumbnails.removeClass('active').eq(index).addClass('active');
+
+        // Update active image only once per change
+        $activeImg = $('.slideshow-items.active');
+        updateZoom();
+    }
+
+    // Initialize first image on page load
+    init();
+});
+
 </script>
-
 
 
 <script>
